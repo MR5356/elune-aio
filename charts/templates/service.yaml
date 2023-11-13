@@ -6,6 +6,7 @@ metadata:
     {{- include "elune-aio.labels" . | nindent 4 }}
 spec:
   type: {{ .Values.service.type }}
+  externalTrafficPolicy: Local
   ports:
     - port: {{ .Values.service.port }}
       targetPort: http
