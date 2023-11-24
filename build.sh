@@ -1,4 +1,4 @@
-VERSION=v1.0.0
+VERSION=v1.0.1
 
 echo "准备代码"
 git clone -b ${VERSION} --depth=1 git@github.com:MR5356/Elune.git elune
