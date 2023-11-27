@@ -1,14 +1,3 @@
-FROM golang:1.21.1-alpine3.18 as go-builder
-WORKDIR /build
-RUN apk add make git && \
-    go env -w GOPROXY=https://goproxy.cn,direct
-
-COPY elune-backend/go.mod elune-backend/go.sum ./
-RUN go mod download
-
-COPY elune-backend .
-RUN make build
-
 FROM --platform=${BUILDPLATFORM} node:18.18.2-bullseye as node-builder
 WORKDIR /build
 COPY elune/package.json .
@@ -19,6 +8,18 @@ RUN yarn config set registry 'https://registry.npm.taobao.org' && \
 COPY elune .
 
 RUN yarn build
+
+FROM golang:1.21.1-alpine3.18 as go-builder
+WORKDIR /build
+RUN apk add make git && \
+    go env -w GOPROXY=https://goproxy.cn,direct
+
+COPY elune-backend/go.mod elune-backend/go.sum ./
+RUN go mod download
+
+COPY elune-backend .
+COPY --from=node-builder /build/dist pkg/server/static
+RUN make build
 
 FROM nginx:stable-alpine
 
