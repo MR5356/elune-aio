@@ -1,0 +1,30 @@
+FROM --platform=${BUILDPLATFORM} node:18.18.2-bullseye as node-builder
+WORKDIR /build
+COPY elune/package.json .
+
+RUN yarn config set registry 'https://registry.npm.taobao.org' && \
+    yarn install
+
+COPY elune .
+
+RUN yarn build
+
+FROM --platform=${BUILDPLATFORM} golang:1.21.1-alpine3.18 as go-builder
+WORKDIR /build
+RUN apk add make git upx && \
+    go env -w GOPROXY=https://goproxy.cn,direct
+
+COPY elune-backend/go.mod elune-backend/go.sum ./
+RUN go mod download
+
+COPY elune-backend .
+COPY --from=node-builder /build/dist pkg/server/static
+RUN GOOS=linux GOARCH=amd64 make build-bin && upx --best bin/elune-backend-linux-amd64 -o bin/elune-backend-linux-amd64-upx && \
+    GOOS=linux GOARCH=arm64 make build-bin && upx --best bin/elune-backend-linux-arm64 -o bin/elune-backend-linux-arm64-upx && \
+    GOOS=darwin GOARCH=amd64 make build-bin && upx --best bin/elune-backend-darwin-amd64 -o bin/elune-backend-darwin-amd64-upx && \
+    GOOS=darwin GOARCH=arm64 make build-bin && upx --best bin/elune-backend-darwin-arm64 -o bin/elune-backend-darwin-arm64-upx && \
+    GOOS=windows GOARCH=amd64 make build-bin && upx --best bin/elune-backend-windows-amd64 -o bin/elune-backend-windows-amd64-upx && \
+    chmod +x bin/*
+
+FROM scratch
+COPY --from=go-builder /build/bin /
