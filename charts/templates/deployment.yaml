@@ -11,6 +11,8 @@ spec:
   selector:
     matchLabels:
       {{- include "elune-aio.selectorLabels" . | nindent 6 }}
+  strategy:
+    {{- include "elune-aio.strategy" . | nindent 6 }}
   template:
     metadata:
       {{- with .Values.podAnnotations }}

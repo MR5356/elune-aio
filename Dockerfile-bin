@@ -21,9 +21,9 @@ COPY elune-backend .
 COPY --from=node-builder /build/dist pkg/server/static
 RUN GOOS=linux GOARCH=amd64 make build-bin && upx --best bin/elune-backend-linux-amd64 -o bin/elune-backend-linux-amd64-upx && \
     GOOS=linux GOARCH=arm64 make build-bin && upx --best bin/elune-backend-linux-arm64 -o bin/elune-backend-linux-arm64-upx && \
-    GOOS=darwin GOARCH=amd64 make build-bin && upx --best bin/elune-backend-darwin-amd64 -o bin/elune-backend-darwin-amd64-upx && \
-    GOOS=darwin GOARCH=arm64 make build-bin && upx --best bin/elune-backend-darwin-arm64 -o bin/elune-backend-darwin-arm64-upx && \
-    GOOS=windows GOARCH=amd64 make build-bin && upx --best bin/elune-backend-windows-amd64 -o bin/elune-backend-windows-amd64-upx && \
+    # GOOS=darwin GOARCH=amd64 make build-bin && upx --best bin/elune-backend-darwin-amd64 -o bin/elune-backend-darwin-amd64-upx && \
+    # GOOS=darwin GOARCH=arm64 make build-bin && upx --best bin/elune-backend-darwin-arm64 -o bin/elune-backend-darwin-arm64-upx && \
+    # GOOS=windows GOARCH=amd64 make build-bin && upx --best bin/elune-backend-windows-amd64 -o bin/elune-backend-windows-amd64-upx && \
     chmod +x bin/*
 
 FROM scratch
