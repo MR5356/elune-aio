@@ -48,12 +48,19 @@ volumeMounts:
   - name: db
     mountPath: /app/db
     readOnly: false
+  - name: timezone
+    mountPath: /etc/localtime
+    readOnly: true
 
 volumes:
   - name: db
     readOnly: false
     hostPath: /opt/elune
     type: DirectoryOrCreate
+  - name: timezone
+    readOnly: true
+    hostPath: /etc/localtime
+    type: "File"
 
 service:
   type: NodePort
