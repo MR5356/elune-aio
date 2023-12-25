@@ -1,4 +1,4 @@
-set -x
+set -uex
 BRANCH=develop
 VERSION=v1.1.0-dev
 
