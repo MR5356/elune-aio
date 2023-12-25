@@ -1,6 +1,6 @@
 set -x
-BRANCH=main
-VERSION=v1.0.7
+BRANCH=develop
+VERSION=v1.1.0-dev
 
 rm -rf out
 
