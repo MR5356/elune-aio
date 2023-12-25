@@ -140,3 +140,8 @@ affinity: {}
 * ELUNE_DATABASE_DSN: 数据库连接地址DSN格式，默认为`db.sqlite`，使用k8s部署默认为`/app/db/elune.db`
 * ELUNE_CACHE_DRIVER: 缓存类型，默认为`memory`，支持`memory`、`redis`
 * ELUNE_CACHE_DSN: 缓存连接地址，默认为`redis://localhost:6379?protocol=3`
+
+
+## Star History
+
+[![Star History Chart](https://api.star-history.com/svg?repos=mr5356/elune-aio&type=Date)](https://star-history.com/#mr5356/elune-aio&Date)
