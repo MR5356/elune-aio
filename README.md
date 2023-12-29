@@ -1,5 +1,9 @@
 # Elune
 elune一站式运维工具平台
+
+![Elune](https://img.shields.io/badge/elune-前端-blue?style=social&logo=github)
+![Elune Backend](https://img.shields.io/badge/elune_Backend-后端-blue?style=social&logo=github)
+
 ![导航页](images/nav.jpg)
 ![运维页](images/devops.jpg)
 ![管理页](images/admin.jpg)
@@ -56,5 +60,4 @@ helm upgrade --install --set image.tag="v1.1.0-dev" elune oci://registry-1.docke
 
 ## Star History
 
-[![Star History Chart](https://api.star-history.com/svg?repos=mr5356/elune-aio&type=Date)](https://star-history.com/#mr5356/elune-aio&Date)
- 
+[![Star History Chart](https://api.star-history.com/svg?repos=mr5356/elune-aio,mr5356/elune,mr5356/elune-backend&type=Date)](https://star-history.com/#mr5356/elune-aio&mr5356/elune&mr5356/elune-backend&Date)

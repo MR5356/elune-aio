@@ -5,8 +5,8 @@ VERSION=v1.1.0-dev
 rm -rf out
 
 echo "准备代码"
-git clone -b ${BRANCH} --depth=1 git@github.com:MR5356/Elune.git elune
-git clone -b ${BRANCH} --depth=1 git@github.com:MR5356/elune-backend.git elune-backend
+git clone -b ${BRANCH} --depth=1 https://github.com/MR5356/elune.git elune
+git clone -b ${BRANCH} --depth=1 https://github.com/MR5356/elune-backend.git elune-backend
 
 echo "构建镜像"
 docker buildx build --platform linux/arm64,linux/amd64 -t registry.cn-hangzhou.aliyuncs.com/toodo/elune-aio:${VERSION} . --push
