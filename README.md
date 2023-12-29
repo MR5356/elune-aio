@@ -35,7 +35,9 @@ chmod +x elune
 docker run -d -p 80:80 registry.cn-hangzhou.aliyuncs.com/toodo/elune-aio:v1.1.0-dev
 ```
 ### 使用K8s安装
+```shell
 helm upgrade --install --set image.tag="v1.1.0-dev" elune oci://registry-1.docker.io/toodo/elune-aio --version v1.1.0-dev
+```
 
 ### 配置项
 配置项适用于各种安装方式，支持以下环境变量进行配置：
@@ -47,6 +49,10 @@ helm upgrade --install --set image.tag="v1.1.0-dev" elune oci://registry-1.docke
 * ELUNE_CACHE_DRIVER: 缓存类型，默认为`memory`，支持`memory`、`redis`
 * ELUNE_CACHE_DSN: 缓存连接地址，默认为`redis://localhost:6379?protocol=3`
 
+## 使用
+内置两个用户分别为：
+* admin: admin
+* devops: devops
 
 ## Star History
 
