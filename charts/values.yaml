@@ -8,7 +8,7 @@ image:
   repository: registry.cn-hangzhou.aliyuncs.com/toodo/elune-aio
   pullPolicy: IfNotPresent
   # Overrides the image tag whose default is the chart appVersion.
-  tag: "v1.0.7"
+  tag: "v1.1.0-dev"
 
 imagePullSecrets: []
 nameOverride: ""

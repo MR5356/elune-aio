@@ -35,101 +35,7 @@ chmod +x elune
 docker run -d -p 80:80 registry.cn-hangzhou.aliyuncs.com/toodo/elune-aio:v1.1.0-dev
 ```
 ### 使用K8s安装
-helm upgrade --install elune oci://registry-1.docker.io/toodo/elune-aio --version 1.0.1
-
-**可配置参数**
-```yaml
-replicaCount: 1
-
-image:
-  repository: registry.cn-hangzhou.aliyuncs.com/toodo/elune-aio
-  pullPolicy: IfNotPresent
-  # Overrides the image tag whose default is the chart appVersion.
-  tag: "v1.0.7"
-
-imagePullSecrets: []
-nameOverride: ""
-fullnameOverride: ""
-
-serviceAccount:
-  create: true
-  annotations: {}
-  name: ""
-
-environment:
-  - name: "ELUNE_DATABASE_DSN"
-    value: "/app/db/elune.db"
-    # value: "host=postgresql-hl user=elune password=elune dbname=elune port=5432 sslmode=disable TimeZone=Asia/Shanghai"
-  - name: "ELUNE_DATABASE_DRIVER"
-    value: "sqlite"
-    # value: "postgres"
-
-podAnnotations: {}
-
-podSecurityContext: {}
-
-securityContext: {}
-
-volumeMounts:
-  - name: db
-    mountPath: /app/db
-    readOnly: false
-  - name: timezone
-    mountPath: /etc/localtime
-    readOnly: true
-
-volumes:
-  - name: db
-    readOnly: false
-    hostPath: /opt/elune
-    type: DirectoryOrCreate
-  - name: timezone
-    readOnly: true
-    hostPath: /etc/localtime
-    type: "File"
-
-service:
-  type: NodePort
-  port: 80
-  nodePort: 30680
-
-ingress:
-  enabled: false
-  className: ""
-  annotations: {}
-  hosts:
-    - host: chart-example.local
-      paths:
-        - path: /
-          pathType: ImplementationSpecific
-  tls: []
-
-resources:
-  limits:
-    cpu: 100m
-    memory: 128Mi
-  requests:
-    cpu: 100m
-    memory: 128Mi
-
-autoscaling:
-  enabled: false
-  minReplicas: 1
-  maxReplicas: 5
-  targetCPUUtilizationPercentage: 80
-
-strategy:
-  type: RollingUpdate
-  rollingUpdate:
-    maxSurge: 100%
-    maxUnavailable: 0%
-
-nodeSelector: {}
-
-tolerations: []
-
-affinity: {}
-```
+helm upgrade --install --set image.tag="v1.1.0-dev" elune oci://registry-1.docker.io/toodo/elune-aio --version v1.1.0-dev
 
 ### 配置项
 配置项适用于各种安装方式，支持以下环境变量进行配置：
@@ -145,3 +51,4 @@ affinity: {}
 ## Star History
 
 [![Star History Chart](https://api.star-history.com/svg?repos=mr5356/elune-aio&type=Date)](https://star-history.com/#mr5356/elune-aio&Date)
+ 
