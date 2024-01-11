@@ -1,6 +1,6 @@
 set -uex
 BRANCH=develop
-VERSION=v1.1.0-dev
+VERSION=v1.1.0-dev_build.1
 
 rm -rf out
 
