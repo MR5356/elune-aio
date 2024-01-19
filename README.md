@@ -46,7 +46,8 @@ helm upgrade --install --set image.tag="v1.1.0-dev_build.2" elune oci://registry
 ```
 
 ### 部署高可用的K8s集群
-注意：请自定义ingress相关的配置，如域名、证书、端口等
+> 注意：请自定义ingress相关的配置，如域名、证书、端口等
+
 部署后端服务
 ```shell
 helm upgrade --install --wait elune -n toodo oci://registry-1.docker.io/toodo/elune-backend --version 0.1.0 --set image.tag="develop-d06fffe"
