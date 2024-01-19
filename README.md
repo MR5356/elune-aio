@@ -31,7 +31,7 @@ elune一站式运维工具平台
 ### 使用二进制应用程序运行
 Elune已经预编译好了linux/amd64、linux/arm64、darwin/amd64、darwin/arm64版本的可执行文件，支持二进制文件一键启动【注意：建议测试环境使用，生产环境请使用Docker版本获取K8s版本】[下载地址](https://github.com/MR5356/elune-aio/releases)
 ```shell
-curl -O https://github.com/MR5356/elune-aio/releases/download/v1.1.0-dev/elune-backend-linux-amd64.tar.gz
+curl -O https://github.com/MR5356/elune-aio/releases/latest/download/elune-backend-linux-amd64.tar.gz
 tar zxvf elune-backend-linux-amd64.tar.gz
 mv elune-backend-linux-amd64 elune 
 chmod +x elune
