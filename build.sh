@@ -1,8 +1,10 @@
 set -uex
 BRANCH=develop
-VERSION=v1.1.0-dev_build.1
+VERSION=v1.1.0-dev_build.2
 
 rm -rf out
+rm -rf elune
+rm -rf elune-backend
 
 echo "准备代码"
 git clone -b ${BRANCH} --depth=1 https://github.com/MR5356/elune.git elune
