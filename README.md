@@ -8,6 +8,7 @@ elune一站式运维工具平台
 ![os](https://img.shields.io/badge/os-linux%2Cwindows%2Cdarwin-blue)
 [![license](https://img.shields.io/github/license/MR5356/elune-aio)](https://www.apache.org/licenses/LICENSE-2.0.html)
 [![release](https://img.shields.io/github/v/release/MR5356/elune-aio)](https://github.com/MR5356/elune-aio/releases)
+[![last-release](https://img.shields.io/github/release-date/MR5356/elune-aio)](https://github.com/MR5356/elune-aio/releases)
 
 ## 预览
 ![导航页](images/nav.jpg)
