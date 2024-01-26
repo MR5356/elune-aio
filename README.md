@@ -41,6 +41,7 @@ tar zxvf elune-backend-linux-amd64.tar.gz
 mv elune-backend-linux-amd64 elune 
 chmod +x elune
 ```
+> 如果你使用的是Mac设备，可以通过Homebrew进行安装`brew install mr5356/brew/elune`
 ### 使用Docker安装
 ```shell
 docker run -d -p 80:80 registry.cn-hangzhou.aliyuncs.com/toodo/elune-aio:v1.1.0-dev_build.2
