@@ -10,6 +10,8 @@ elune一站式运维工具平台
 [![release](https://img.shields.io/github/v/release/MR5356/elune-aio)](https://github.com/MR5356/elune-aio/releases)
 [![last-release](https://img.shields.io/github/release-date/MR5356/elune-aio)](https://github.com/MR5356/elune-aio/releases)
 
+![应用架构图](images/elune.drawio.png)
+
 ## 预览
 ![导航页](images/nav.jpg)
 ![运维页](images/devops.jpg)
