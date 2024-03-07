@@ -46,11 +46,11 @@ chmod +x elune
 > 如果你使用的是Mac设备，可以通过Homebrew进行安装`brew install mr5356/brew/elune`
 ### 使用Docker安装
 ```shell
-docker run -d -p 80:80 registry.cn-hangzhou.aliyuncs.com/toodo/elune-aio:v1.1.0-dev_build.2
+docker run -d -p 80:80 registry.cn-hangzhou.aliyuncs.com/toodo/elune-aio
 ```
 ### 使用K8s安装
 ```shell
-helm upgrade --install --set image.tag="v1.1.0-dev_build.2" elune oci://registry-1.docker.io/toodo/elune-aio --version v1.1.0-dev
+helm upgrade --install --set image.tag="latest" elune oci://registry-1.docker.io/toodo/elune-aio --version v1.1.0-dev
 ```
 
 ### 部署高可用的K8s集群
